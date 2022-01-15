@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+.container{
+    margin: 20px 20px;
+    width: 336px;
+    
+    height: auto;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.headTitle{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
