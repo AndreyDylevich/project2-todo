@@ -1,6 +1,6 @@
-let addMessage = document.querySelector('.message')
-addButton = document.querySelector('.add')
-todo = document.querySelector('.todo')
+let addMessage = document.querySelector('.message');
+addButton = document.querySelector('.add');
+todo = document.querySelector('.todo');
 
 
 
@@ -8,9 +8,9 @@ todo = document.querySelector('.todo')
 let todoList = []
 
 if (localStorage.getItem('todo')) {
-    todoList = JSON.parse(localStorage.getItem('todo'))
-    displayMessages()
-    console.log(todoList)
+    todoList = JSON.parse(localStorage.getItem('todo'));
+    displayMessages();
+    console.log(todoList);
 }
 
 addButton.addEventListener('click', function () {
@@ -20,21 +20,21 @@ addButton.addEventListener('click', function () {
         checked: false,
         important: false
 
-    }
+    };
 
-    todoList.push(newTodo)
-    displayMessages()
+    todoList.push(newTodo);
+    displayMessages();
     addMessage.value = ''
-})
+});
 function deleteTask(value_task) {
     for (let i = 0; i < todoList.length; i++) {
         if (value_task === todoList[i].todo) {
             todoList.splice(i, 1)
         } else {
             console.log(value_task, todoList[i])
-        }
+        };
         displayMessages()
-        localStorage.setItem('todo', JSON.stringify(todoList))
+        localStorage.setItem('todo', JSON.stringify(todoList));
 
 
     }
@@ -52,31 +52,31 @@ function displayMessages() {
         todo.innerHTML = displayMessages;
 
     })
-    localStorage.setItem('todo', JSON.stringify(todoList))
+    localStorage.setItem('todo', JSON.stringify(todoList));
 }
 
 todo.addEventListener('change', function (event) {
-    let idInput = event.target.getAttribute('id')
-    let forLabel = todo.querySelector('[for =' + idInput + ']')
-    let valueLabel = forLabel.innerHTML
-    console.log('Вашa задача:', valueLabel)
+    let idInput = event.target.getAttribute('id');
+    let forLabel = todo.querySelector('[for =' + idInput + ']');
+    let valueLabel = forLabel.innerHTML;
+    console.log('Вашa задача:', valueLabel);
 
     todoList.forEach(function (item) {
         if (item.todo === valueLabel) {
             item.checked = !item.checked
-            localStorage.setItem('todo', JSON.stringify(todoList))
+            localStorage.setItem('todo', JSON.stringify(todoList));
         }
-    })
+    });
 
-})
+});
 
 todo.addEventListener('contextmenu', function (event) {
     event.preventDefault()
     todoList.forEach(function (item) {
         if (item.todo === event.target.innerHTML) {
             item.important = !item.important
-            displayMessages()
-            localStorage.setItem('todo', JSON.stringify(todoList))
+            displayMessages();
+            localStorage.setItem('todo', JSON.stringify(todoList));
         }
-    })
-})
+    });
+});
